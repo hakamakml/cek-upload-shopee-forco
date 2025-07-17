@@ -1,20 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "Shopee Upload Date Finder",
-  "version": "1.0",
-  "description": "Tampilkan tanggal upload produk Shopee langsung di halaman produk.",
-  "permissions": ["scripting", "activeTab"],
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": "icon.png"
-  },
-  "background": {
-    "service_worker": "background.js"
-  },
+  "name": "Shopee Upload Date Checker",
+  "version": "1.3",
+  "permissions": ["scripting","activeTab"],
+  "host_permissions": ["https://shopee.co.id/*","https://*.shopee.co.id/*"],
   "content_scripts": [
     {
-      "matches": ["*://shopee.co.id/*"],
-      "js": ["content.js"]
+      "matches": ["https://shopee.co.id/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
     }
   ]
 }
